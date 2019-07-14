@@ -8,7 +8,7 @@ from addresses.models import Address
 from accounts.forms import LoginForm, GuestForm
 from orders.models import Order
 from products.models import Product
-from .models import Cart
+from .models import Cart 
 
 def cart_home(request):
     # request.session.set_expirty(300) # 5 minutes
