@@ -3,10 +3,12 @@ version: "3"
 services:
   src:
     build: .
+    privileged: true
     ports:
       - "8888:7777"
     volumes:
       - ./src:/src
+      - ./static_cdn:/static_cdn
     command: >
       sh -c "python manage.py runserver 0.0.0.0:7777"
 
