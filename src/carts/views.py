@@ -11,6 +11,19 @@ from orders.models import Order
 from products.models import Product
 from .models import Cart 
 
+
+def cart_detail_api_view(request):
+    cart_obj, new_obj = Cart.objects.new_or_get(request)
+    products = [{"name": x.title, "price": x.price} for x in cart_obj.products.all()]
+    # products = []
+    # for x in cart_obj.products.all():
+    #     products.append(
+    #         {"name": x.name, "price": x.price}
+    #     )
+    cart_data = {"products":products, "subtotal": cart_obj.subtotal, "total": cart_obj.total}
+    return JsonResponse(cart_data)
+
+
 def cart_home(request):
     # request.session.set_expirty(300) # 5 minutes
     # request.session.session_key

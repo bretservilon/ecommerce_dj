@@ -1,4 +1,4 @@
-<form class="form-product-ajax" method='POST' action='{% url "update" %}' class="form">
+<form class="form-product-ajax" method='POST' action='{% url "update" %}' data-endpoint="{% url 'update' %}" class="form">
   {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}">
 
